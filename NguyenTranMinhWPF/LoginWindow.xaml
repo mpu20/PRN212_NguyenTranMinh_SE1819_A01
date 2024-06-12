@@ -6,15 +6,6 @@
         xmlns:local="clr-namespace:NguyenTranMinhWPF"
         mc:Ignorable="d"
         Title="LoginWindow" Height="768" Width="1366">
-    <Window.Template>
-        <ControlTemplate TargetType="{x:Type Window}">
-            <Border Background="{TemplateBinding Background}" CornerRadius="15">
-                <AdornerDecorator>
-                    <ContentPresenter />
-                </AdornerDecorator>
-            </Border>
-        </ControlTemplate>
-    </Window.Template>
     <Window.Background>
         <ImageBrush ImageSource="/assets/background.png"/>
     </Window.Background>
@@ -23,7 +14,7 @@
             <ColumnDefinition Width="4*" />
             <ColumnDefinition Width="6*" />
         </Grid.ColumnDefinitions>
-        <Border Grid.Column="0" CornerRadius="15, 100, 100, 15" Background="White" Opacity="0.9">
+        <Border Grid.Column="0" CornerRadius="0, 100, 100, 0" Background="White" Opacity="0.9">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"></RowDefinition>
