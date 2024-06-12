@@ -56,48 +56,35 @@
                 </Button.Resources>
             </Button>
         </DockPanel>
-        <Border Grid.Row="2" BorderBrush="Gray" BorderThickness="1" CornerRadius="10" Background="White"  Margin="20, 0, 20, 10">
-            <DataGrid Name="dgCustomers" AutoGenerateColumns="False" Width="Auto" HorizontalAlignment="Stretch" BorderThickness="0" Background="Transparent" MouseDoubleClick="dgCustomers_MouseDoubleClick" SelectionUnit="FullRow" SelectionMode="Extended">
-                <DataGrid.ColumnHeaderStyle>
-                    <Style TargetType="{x:Type DataGridColumnHeader}">
-                        <Setter Property="Background" Value="Transparent" />
-                        <Setter Property="BorderBrush" Value="Transparent" />
-                        <Setter Property="BorderThickness" Value="0" />
-                        <Setter Property="Padding" Value="10, 15" />
-                        <Setter Property="FontWeight" Value="Bold" />
-                        <Setter Property="FontSize" Value="14" />
-                    </Style>
-                </DataGrid.ColumnHeaderStyle>
-                <DataGrid.CellStyle>
-                    <Style TargetType="DataGridCell">
-                        <Setter Property="Padding" Value="10, 15" />
-                        <Setter Property="BorderBrush" Value="#F7F9F7" />
-                        <Setter Property="BorderThickness" Value="0, 2, 0, 0" />
-                        <Setter Property="FontSize" Value="14" />
-                    </Style>
-                </DataGrid.CellStyle>
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="Customer Name" Width="7*" Binding="{Binding CustomerFullName}"/>
-                    <DataGridTextColumn Header="Phone" Width="4*" Binding="{Binding Telephone}"/>
-                    <DataGridTextColumn Header="Email" Width="8*" Binding="{Binding EmailAddress}"/>
-                    <DataGridTextColumn Header="Birthday" Width="3*" Binding="{Binding CustomerBirthday, StringFormat=dd/MM/yyyy}"/>
-                    <DataGridTemplateColumn Header="Status" Width="2*">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock x:Name="statusTextBlock" Text="{Binding CustomerStatus}" />
-                                <DataTemplate.Triggers>
-                                    <DataTrigger Binding="{Binding CustomerStatus}" Value="1">
-                                        <Setter TargetName="statusTextBlock" Property="Text" Value="Active" />
-                                    </DataTrigger>
-                                    <DataTrigger Binding="{Binding CustomerStatus}" Value="2">
-                                        <Setter TargetName="statusTextBlock" Property="Text" Value="Deleted" />
-                                    </DataTrigger>
-                                </DataTemplate.Triggers>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-                </DataGrid.Columns>
-            </DataGrid>
-        </Border>
+        <DataGrid Grid.Row="2" Name="dgCustomers" AutoGenerateColumns="False" Width="Auto" HorizontalAlignment="Stretch" MouseDoubleClick="dgCustomers_MouseDoubleClick" SelectionUnit="FullRow" SelectionMode="Extended">
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Padding" Value="10, 15" />
+                    <Setter Property="FontWeight" Value="Bold" />
+                    <Setter Property="FontSize" Value="14" />
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Customer Name" Width="7*" Binding="{Binding CustomerFullName}"/>
+                <DataGridTextColumn Header="Phone" Width="4*" Binding="{Binding Telephone}"/>
+                <DataGridTextColumn Header="Email" Width="8*" Binding="{Binding EmailAddress}"/>
+                <DataGridTextColumn Header="Birthday" Width="3*" Binding="{Binding CustomerBirthday, StringFormat=dd/MM/yyyy}"/>
+                <DataGridTemplateColumn Header="Status" Width="2*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock x:Name="statusTextBlock" Text="{Binding CustomerStatus}" />
+                            <DataTemplate.Triggers>
+                                <DataTrigger Binding="{Binding CustomerStatus}" Value="1">
+                                    <Setter TargetName="statusTextBlock" Property="Text" Value="Active" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding CustomerStatus}" Value="2">
+                                    <Setter TargetName="statusTextBlock" Property="Text" Value="Deleted" />
+                                </DataTrigger>
+                            </DataTemplate.Triggers>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Page>

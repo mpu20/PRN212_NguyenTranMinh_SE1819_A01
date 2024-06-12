@@ -56,51 +56,38 @@
                 </Button.Resources>
             </Button>
         </DockPanel>
-        <Border Grid.Row="2" BorderBrush="Gray" BorderThickness="1" CornerRadius="10" Background="White"  Margin="20, 0, 20, 10">
-            <DataGrid Name="dgRooms" AutoGenerateColumns="False" Width="Auto" HorizontalAlignment="Stretch" BorderThickness="0" Background="Transparent" MouseDoubleClick="dgRooms_MouseDoubleClick" SelectionUnit="FullRow" SelectionMode="Extended">
-                <DataGrid.ColumnHeaderStyle>
-                    <Style TargetType="{x:Type DataGridColumnHeader}">
-                        <Setter Property="Background" Value="Transparent" />
-                        <Setter Property="BorderBrush" Value="Transparent" />
-                        <Setter Property="BorderThickness" Value="0" />
-                        <Setter Property="Padding" Value="10, 15" />
-                        <Setter Property="FontWeight" Value="Bold" />
-                        <Setter Property="FontSize" Value="14" />
-                    </Style>
-                </DataGrid.ColumnHeaderStyle>
-                <DataGrid.CellStyle>
-                    <Style TargetType="DataGridCell">
-                        <Setter Property="Padding" Value="10, 15" />
-                        <Setter Property="BorderBrush" Value="Gray" />
-                        <Setter Property="BorderThickness" Value="0, 1, 0, 0" />
-                        <Setter Property="FontSize" Value="14" />
-                    </Style>
-                </DataGrid.CellStyle>
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="Room Number" Width="3*" Binding="{Binding RoomNumber}"/>
-                    <DataGridTextColumn Header="Description" Width="10*" Binding="{Binding RoomDescription}"/>
-                    <DataGridTextColumn Header="Max Capacity" Width="3*" Binding="{Binding RoomMaxCapacity}"/>
-                    <DataGridTextColumn Header="Price Per Date" Width="4*" Binding="{Binding RoomPricePerDate}"/>
-                    <DataGridTemplateColumn Header="Status" Width="2*">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock x:Name="statusTextBlock" Text="{Binding RoomStatus}" />
-                                <DataTemplate.Triggers>
-                                    <DataTrigger Binding="{Binding RoomStatus}" Value="0">
-                                        <Setter TargetName="statusTextBlock" Property="Text" Value="Booked" />
-                                    </DataTrigger>
-                                    <DataTrigger Binding="{Binding RoomStatus}" Value="1">
-                                        <Setter TargetName="statusTextBlock" Property="Text" Value="Active" />
-                                    </DataTrigger>
-                                    <DataTrigger Binding="{Binding RoomStatus}" Value="2">
-                                        <Setter TargetName="statusTextBlock" Property="Text" Value="Deleted" />
-                                    </DataTrigger>
-                                </DataTemplate.Triggers>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-                </DataGrid.Columns>
-            </DataGrid>
-        </Border>
+        <DataGrid Grid.Row="2" Name="dgRooms" AutoGenerateColumns="False" Width="Auto" HorizontalAlignment="Stretch" BorderThickness="0" Background="Transparent" MouseDoubleClick="dgRooms_MouseDoubleClick" SelectionUnit="FullRow" SelectionMode="Extended">
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Padding" Value="10, 15" />
+                    <Setter Property="FontWeight" Value="Bold" />
+                    <Setter Property="FontSize" Value="14" />
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Room Number" Width="3*" Binding="{Binding RoomNumber}"/>
+                <DataGridTextColumn Header="Description" Width="10*" Binding="{Binding RoomDescription}"/>
+                <DataGridTextColumn Header="Max Capacity" Width="3*" Binding="{Binding RoomMaxCapacity}"/>
+                <DataGridTextColumn Header="Price Per Date" Width="4*" Binding="{Binding RoomPricePerDate}"/>
+                <DataGridTemplateColumn Header="Status" Width="2*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock x:Name="statusTextBlock" Text="{Binding RoomStatus}" />
+                            <DataTemplate.Triggers>
+                                <DataTrigger Binding="{Binding RoomStatus}" Value="0">
+                                    <Setter TargetName="statusTextBlock" Property="Text" Value="Booked" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding RoomStatus}" Value="1">
+                                    <Setter TargetName="statusTextBlock" Property="Text" Value="Active" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding RoomStatus}" Value="2">
+                                    <Setter TargetName="statusTextBlock" Property="Text" Value="Deleted" />
+                                </DataTrigger>
+                            </DataTemplate.Triggers>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Page>

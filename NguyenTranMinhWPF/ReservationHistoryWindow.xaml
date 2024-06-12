@@ -53,33 +53,20 @@
                 </Button.Resources>
             </Button>
         </DockPanel>
-        <Border Grid.Row="2" BorderBrush="Gray" BorderThickness="1" CornerRadius="10" Background="White"  Margin="20, 0, 20, 10">
-            <DataGrid Name="dgReservations" AutoGenerateColumns="False" Width="Auto" HorizontalAlignment="Stretch" BorderThickness="0" Background="Transparent">
-                <DataGrid.ColumnHeaderStyle>
-                    <Style TargetType="{x:Type DataGridColumnHeader}">
-                        <Setter Property="Background" Value="Transparent" />
-                        <Setter Property="BorderBrush" Value="Transparent" />
-                        <Setter Property="BorderThickness" Value="0" />
-                        <Setter Property="Padding" Value="10, 15" />
-                        <Setter Property="FontWeight" Value="Bold" />
-                        <Setter Property="FontSize" Value="14" />
-                    </Style>
-                </DataGrid.ColumnHeaderStyle>
-                <DataGrid.CellStyle>
-                    <Style TargetType="DataGridCell">
-                        <Setter Property="Padding" Value="10, 15" />
-                        <Setter Property="BorderBrush" Value="#F7F9F7" />
-                        <Setter Property="BorderThickness" Value="0, 2, 0, 0" />
-                        <Setter Property="FontSize" Value="14" />
-                    </Style>
-                </DataGrid.CellStyle>
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="Room Number" Binding="{Binding RoomInformation.RoomNumber}" Width="2*"/>
-                    <DataGridTextColumn Header="Check In" Binding="{Binding CheckIn}" Width="3*"/>
-                    <DataGridTextColumn Header="Check Out" Binding="{Binding CheckOut}" Width="3*"/>
-                    <DataGridTextColumn Header="Total Price" Binding="{Binding TotalPrice}" Width="4*"/>
-                </DataGrid.Columns>
-            </DataGrid>
-        </Border>
+        <DataGrid Grid.Row="2" Name="dgReservations" AutoGenerateColumns="False" Width="Auto" HorizontalAlignment="Stretch" BorderThickness="0" Background="Transparent">
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Padding" Value="10, 15" />
+                    <Setter Property="FontWeight" Value="Bold" />
+                    <Setter Property="FontSize" Value="14" />
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Room Number" Binding="{Binding RoomInformation.RoomNumber}" Width="2*"/>
+                <DataGridTextColumn Header="Check In" Binding="{Binding CheckIn}" Width="3*"/>
+                <DataGridTextColumn Header="Check Out" Binding="{Binding CheckOut}" Width="3*"/>
+                <DataGridTextColumn Header="Total Price" Binding="{Binding TotalPrice}" Width="4*"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>
